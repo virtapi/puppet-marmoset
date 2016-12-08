@@ -1,0 +1,14 @@
+[Unit]
+Description=marmoset API
+After=network.target
+
+[Service]
+WorkingDirectory=<%= $marmoset::vcsrepo %>
+ExecStart=<%= $marmoset::pyvenv %>/bin/python3 <%= $marmoset::vcsrepo %>/marmoset.py server
+User=<%= $marmoset::username %>
+Group=<%= $marmoset::groupname %>
+PrivateTmp=true
+AmbientCapabilities=CAP_LINUX_IMMUTABLE
+
+[Install]
+WantedBy=multi-user.target

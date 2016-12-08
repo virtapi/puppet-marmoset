@@ -1,0 +1,80 @@
+# Example config file with all config directives and their default
+# values.
+
+# De-/Activate Modules of marmoset if you don't need them
+[Modules]
+PXE: True
+VM: False
+Webserver: True
+Installimage: True
+DHCP: True
+Installstatus: True
+Imagecatalog: True
+
+[Webserver]
+# Settings for HTTP Basic Auth
+Username: <%= $marmoset::auth_username %>
+Password: <%= $marmoset::auth_password %>
+BasicRealm: marmoset
+# IP address or hostname and port to bind to
+Host: <%= $marmoset::host %>
+Port: <%= $marmoset::port %>
+# Domain that is used by clients to address the server. It is used to
+# build absolute urls. If unset, it defaults to 'localhost'.
+# take a look here about the syntax: http://stackoverflow.com/a/23312820
+ServerName: <%= $marmoset::servername %>:<%= $marmoset::port %>
+Debug: True
+AuthWhitelistEndpoint: installstatusreport,installstatushistory
+
+[Libvirt]
+URI: qemu:///system
+# If you want to provide your own XML templates for domain creation,
+# put them in a dir and set the path here. See the default templates
+# in marmoset/virt/templates for a start.
+XMLTemplateDirectory:
+# Name of the libvirt network to connect the domain interfaces to if
+# no network name is given on creation.
+Network:
+# Name of the storage pool a storage volume is created in, if no
+# storage name is given.
+Storage:
+
+# this will be used for storing PXE options
+[PXEConfig]
+ConfigDirectory: /srv/tftp/pxelinux.cfg/
+ImmutableSupport: True
+
+# The PXELabel section has no defaults, as its entries depend on
+# the PXE configuration. The syntax is `label: callbackmethod`.
+# If the entry doesn't need any callback, just let callbackmethod
+# blank. Only use normal letters and numbers as labels, no - or whitespace
+#
+[PXELabel]
+archrescue: setpwhash
+#rescue: setpwhash
+#freebsd: createpwhashfile
+#openbsd:
+
+[Installimage]
+ConfigDirectory: /home/marmoset/marmoset/installimageconfigs/
+
+[DHCPConfig]
+# list of all statements that we allow
+# see https://github.com/virtapi/marmoset/issues/7#issuecomment-175262281
+# and see https://github.com/virtapi/marmoset/issues/7#issuecomment-175275522
+additional_statements = option domain-name-servers,option domain-name,max-lease-time,default-lease-time,option ntp-servers,option next-server
+ldap_server = <%= $marmoset::ldap_server %>
+ldap_port = <%= $marmoset::ldap_port %>
+ldap_bind_dn = <%= $marmoset::ldap_bind_dn %>
+ldap_passwort = <%= $marmoset::ldap_password %>
+ldap_client_base_dn = <%= $marmoset::ldap_client_base_dn %>
+
+# No empty gateway are allowed
+force_gateway: True
+
+
+[Installstatus]
+SQLiteDB: /home/marmoset/installstatus.db
+
+[Imagecatalog]
+ImageDirectory: /srv/nfs/images/

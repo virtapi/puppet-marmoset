@@ -1,0 +1,68 @@
+{
+  "name": "puppet-marmoset",
+  "version": "0.3.0",
+  "author": "Tim Meusel",
+  "summary": "installs, configures, and manages the marmoset service",
+  "license": "AGPL-3.0",
+  "source": "https://github.com/virtapi/puppet-marmoset",
+  "project_page": "https://github.com/virtapi/puppet-marmoset",
+  "issues_url": "https://github.com/virtapi/puppet-marmoset",
+  "description": "This is a nice module to manage marmoset",
+  "dependencies": [
+    {
+      "name": "xaque208/python",
+      "version_requirement": ">= 2.7.0 < 3.0.0"
+    },
+    {
+      "name": "puppetlabs/vcsrepo",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
+    },
+    {
+      "name": "camptocamp/systemd",
+      "version_requirement": ">= 1.0.0 < 2.0.0"
+    },
+    {
+      "name": "puppetlabs/inifile",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "16.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Archlinux"
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "24",
+        "25",
+        "26"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.8.0 < 5.0.0"
+    }
+  ]
+}

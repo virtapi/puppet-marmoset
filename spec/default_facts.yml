@@ -1,0 +1,16 @@
+---
+concat_basedir: "/tmp"
+ipaddress: "10.16.254.254"
+ipaddress6: "2a01:488:67:1000:253d:cd4f:0:1"
+ipaddress_eth0: "10.16.254.254"
+is_pe: false
+macaddress: "AA:AA:AA:AA:AA:AA"
+selinux_config_mode: "disabled"
+swap_partition: 'unknown'
+sach_platform: 'hypervisor'
+sach_type: 'WINPCSSSD'
+systemd: 'false'
+sach_passalgo: 'md5'
+sach_recommended_grub_provider: 'grub'
+sach_location: 'dc32'
+apt_update_last_success: '3456789'
