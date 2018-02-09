@@ -13,10 +13,10 @@ class marmoset (
   String $username             = 'marmoset',
   String $groupname            = 'marmoset',
   String $auth_username        = 'youwontguessthis',
-  String $home                 = "/home/${marmoset::username}",
-  String $vcsrepo              = "${marmoset::home}/marmoset",
-  String $pyvenv               = "${marmoset::vcsrepo}/venv",
-  String $requirements         = "${marmoset::vcsrepo}/requirements.txt",
+  String $home                 = "/home/${username}",
+  String $vcsrepo              = "${home}/marmoset",
+  String $pyvenv               = "${vcsrepo}/venv",
+  String $requirements         = "${vcsrepo}/requirements.txt",
   Boolean $manage_python       = true,
 ) {
 
